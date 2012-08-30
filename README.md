@@ -21,21 +21,23 @@ Or install it yourself as:
 Create a file in your `test/integration` folder and make a JSLint testcase like:
 
 
-    class JslintTest < Capybara::JavaScriptLint::TestCase
-      options(
-        white: true,
-        undef: true,
-        sloppy: true,
-        vars: true,
-        nomen: true,
-        newcap: true,
-        maxerr: 20
-      )
+```ruby
+class JslintTest < Capybara::JavaScriptLint::TestCase
+  options(
+    white: true,
+    undef: true,
+    sloppy: true,
+    vars: true,
+    nomen: true,
+    newcap: true,
+    maxerr: 20
+  )
 
-      check 'application.js'
-      check 'extensions.js'
-      # etc...
-    end
+  check 'application.js'
+  check 'extensions.js'
+  # etc...
+end
+```
 
 It will load them by requesting `/assets/<file>` from the rails server.
 
