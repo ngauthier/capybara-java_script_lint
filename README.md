@@ -1,6 +1,6 @@
 # Capybara::JavaScriptLint
 
-TODO: Write a gem description
+Uses `capybara-webkit` to run jslint on javascript files via the rails 3 asset pipeline.
 
 ## Installation
 
@@ -18,7 +18,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a file in your `test/integration` folder and make a JSLint testcase like:
+
+
+    class JslintTest < Capybara::JavaScriptLint::TestCase
+      options(
+        white: true,
+        undef: true,
+        sloppy: true,
+        vars: true,
+        nomen: true,
+        newcap: true,
+        maxerr: 20
+      )
+
+      check 'application.js'
+      check 'extensions.js'
+      # etc...
+    end
+
+It will load them by requesting `/assets/<file>` from the rails server.
 
 ## Contributing
 

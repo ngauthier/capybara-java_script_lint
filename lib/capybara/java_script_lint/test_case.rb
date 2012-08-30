@@ -20,7 +20,7 @@ module Capybara
 
       private
       def self.jslint_source
-        @jslint_source ||= File.read(Rails.root.join(*%w(vendor assets javascripts jslint.js)))
+        @jslint_source ||= File.read(File.join(File.dirname(__FILE__), '..', '..', '..', 'jslint.js'))
       end
 
       def assert_jslint(path, options, jslint)

@@ -14,4 +14,5 @@ Gem::Specification.new do |gem|
   gem.name          = "capybara-java_script_lint"
   gem.require_paths = ["lib"]
   gem.version       = Capybara::JavaScriptLint::VERSION
+  gem.add_dependency 'capybara-webkit'
 end
